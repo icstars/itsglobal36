@@ -29,8 +29,8 @@ var health=100;
 var paused = false;
 
 function startGame() {
-    myBackground = new component(1000, 550, "assets/space_background.png", 0, 0, "background");
-    myGamePiece = new component(80, 60, "assets/rocket_sample.png", 10, 100,"image");
+    myBackground = new component(1000, 550, "../assets/space_background.png", 0, 0, "background");
+    myGamePiece = new component(80, 60, "../assets/rocket_sample.png", 10, 100,"image");
    
     myHealth = new component("30px", "Consolas", "white",15, 30, "text");
     myScore = new component("30px", "Consolas", "white", 830,30, "text");
@@ -226,28 +226,28 @@ function updateGameArea() {
         minY = 0;
         maxY = myGameArea.canvas.height;
         y = Math.floor(Math.random()*(maxY-minY+1)+minY);
-        myObstacles.push(new component(70, 70, "assets/asteroid.png" ,x , y,"image"));
+        myObstacles.push(new component(70, 70, "../assets/asteroid.png" ,x , y,"image"));
     }
     if (myGameArea.frameNo == 1 || everyinterval(70)) {
         x = myGameArea.canvas.width;
         minY = 0;
         maxY = myGameArea.canvas.height;
         y = Math.floor(Math.random()*(maxY-minY+1)+minY);
-        myObstacles2.push(new component(30, 30, "assets/spacerock.jpg" ,x , y,"image"));
+        myObstacles2.push(new component(30, 30, "../assets/spacerock.jpg" ,x , y,"image"));
     }
     if (myGameArea.frameNo == 1 || everyinterval(40)) {
         x = myGameArea.canvas.width;
         minY = 0;
         maxY = myGameArea.canvas.height;
         y = Math.floor(Math.random()*(maxY-minY+1)+minY);
-        myObstacles3.push(new component(30, 30, "assets/obstacle3proto.jpg" ,x , y,"image"));
+        myObstacles3.push(new component(30, 30, "../assets/obstacle3proto.jpg" ,x , y,"image"));
     }
     if (myGameArea.frameNo == 1 || everyinterval(110)) {
         x = myGameArea.canvas.width;
         minY = 0;
         maxY = myGameArea.canvas.height;
         y = Math.floor(Math.random()*(maxY-minY+1)+minY);
-        myCoins.push(new component(150, 120, "assets/coin.png" ,x , y,"image"));
+        myCoins.push(new component(150, 120, "../assets/coin.png" ,x , y,"image"));
     }
     
     for (i = 0; i < myObstacles.length; i += 1) {
