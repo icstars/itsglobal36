@@ -26,7 +26,7 @@ var myScore;
 var myHealth ;
 var score=10;
 var health=100;
-var paused = false;
+var Paused = false;
 
 function startGame() {
     myBackground = new component(1000, 550, "../assets/space_background.png", 0, 0, "background");
@@ -63,10 +63,27 @@ var myGameArea = {
     stop : function() {
         clearInterval(this.interval);
     }
+    
 }
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
+}
+function pauseGame() {
+    
+  if (!Paused) {
+      
+    clearInterval(myGameArea.interval)
+    Paused = true;
+    
+  } else if (Paused) {
+      
+    myGameArea.interval=setInterval(updateGameArea,20) 
+    Paused = false;
+  }
+  else{
+      myGameArea.interval=setInterval(updateGameArea,20)
+  }
 }
 //----------------------------------------------------------------------------
 // design parameters for objects
@@ -85,6 +102,9 @@ function component(width, height, color, x, y, type) {
     this.y = y;
 //------------------------------------------------------------------------
     this.update = function() {
+        
+        
+        
        ctx = myGameArea.context;
        
         
@@ -116,7 +136,7 @@ function component(width, height, color, x, y, type) {
             }
         }
     }
-    
+
     this.wallHit = function(){
         var topHit = 0;
         if(this.y <= topHit){
@@ -158,22 +178,38 @@ function component(width, height, color, x, y, type) {
             health =0;
             alive = false;
             if(!alive){
+                myGameArea.stop();
                 ctx.fillText('Game Over',(myGameArea.canvas.width/2)-10,myGameArea.canvas.height/2,300);
                 ctx.fillText('Continue?', myGameArea.canvas.width/2,(myGameArea.canvas.height/2)+30,300);
-
-                myGameArea.stop();
+                
+                
             }
            
         }
     }
     
 }
+
+function waitForUnpause(){
+    if (myGameArea.keys && myGameArea.keys[80]) {pauseGame();}
+}
 //game component parameters(end)----------------------------------------------
+
 
 function retry(){
         location.reload();
         
     }
+//------------------------------    
+    function shipMovement(){
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
+    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
+    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
+    if (myGameArea.keys && myGameArea.keys[80]) {pauseGame();}
+}
 
 //update game area function---------------------------------------------------
 function updateGameArea() {
@@ -271,19 +307,15 @@ function updateGameArea() {
         myCoins[i].update();
         
     }
- //---------------------------------------------------------------------------   
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------   
     myScore.text="Coins: " + score;
     myScore.update();
     myHealth.text="Health:" + health;
     myHealth.update();
     myGamePiece.healthIndicator();
-    myGamePiece.speedX = 0;
-    myGamePiece.speedY = 0;
-    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
-    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
-    if (myGameArea.keys && myGameArea.keys[80]) {location.reload()};
+    shipMovement();
     myGamePiece.newPos();
     myGamePiece.update();
     myGamePiece.wallHit();

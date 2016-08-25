@@ -8,6 +8,10 @@ module.exports = function() {
   router.get('/', function(req,res){
     return res.render('gameTest.html');
   });
+  
+  router.get('/shop', function(req,res){
+    return res.render('shopPage.html');
+  });
 
   /* Your code here */
 

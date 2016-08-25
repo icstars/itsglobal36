@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Menu</title>
+  <link rel ="stylesheet" type="text/css" href = "../css/shopPage.css">
+  <script>src="../javascript/shopPage.js"</script>
+   
+</head>
+  <body>
+    <button id="btnBack" onclick ="window.location.href='../html/menu.html'">Back</button>
+    
+      <h1>Tool Shop</h1>
+      
+      
+      <div id="imgBar">
+        <img class = "tool" src="../assets/Basic.png">
+        <img class = "tool" src="../assets/goodTool.png">
+        <img class = "tool"  src="../assets/qualityTool.png">
+    </div>
+    
+      <p id ="txtBasic">Basic Tool</p>
+      <p id="txtGood">Good Tool</p>
+      <p id ="txtQuality">Quality Tool </p>
+      
+      <p id ="txtBasicPrice">250 Coins</p>
+      <p id ="txtGoodPrice">500 Coins</p>
+      <p id ="txtQualityPrice">1000 Coins</p>
+      
+      <p id = "qtyBasic"></p>
+      <p id = "qtyGood"></p>
+      <p id = "qtyQuality"></p>
+  
+      
+      <div id="btnBar">
+        <button onclick="btnBasicClicked()" id="btn1">Purchase</button>
+        
+        <button onclick="btnGoodClicked()">Purchase</button>
+        
+        <button onclick="btnQualityClicked()">Purchase</button>
+      </div>
+  <script>
+ var quantity = 0;
+  function btnBasicClicked(){
+    if(quantity < 25){
+    quantity++;
+    document.getElementById('qtyBasic').innerHTML = "Qty: "+quantity+"/25";
+      }
+    }
+    
+  var quantity2 = 0;
+  function btnGoodClicked(){
+    if(quantity2 < 25){
+    quantity2++;
+    document.getElementById('qtyGood').innerHTML = "Qty: "+quantity2+"/25";
+      }
+    }
+    
+  var quantity3 = 0;
+  function btnQualityClicked(){
+    if(quantity3 < 25){
+    quantity3++;
+    document.getElementById('qtyQuality').innerHTML = "Qty: "+quantity+"/25";
+      }
+    }
+  
+
+document.getElementById("qtyBasic").innerHTML = "Qty: "+quantity+"/25";
+document.getElementById("qtyGood").innerHTML = "Qty: "+quantity+"/25";
+document.getElementById("qtyQuality").innerHTML = "Qty: "+quantity+"/25";
+</script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+   body {
+     background-image: url(../assets/spaceBackgrounMain.jpg);
+      width: 500px;
+      height:500px;
+}
+
+
+#btnBack{
+  
+  Width:30%;
+}
+
+
+button {
+  position:relative;
+  width:190px;
+  height:40px;
+  border-radius:20px;
+  font-size:20px;
+  color:#fff;
+  background:gold;
+  margin:25px;
+  
+}
+
+h1 {
+  background: linear-gradient(to right, blue , white);
+  position:relative;
+  left: 80%;
+  top:-88px;
+  color: white;
+  text-align:center;
+  width: 100%;
+  height:8%;
+  padding-top:1px;
+  border-radius:10px;
+  border:4px ridge gold;
+}
+
+#txtBasic {
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-15%;
+  left:66.5%;
+  width:30%;
+}
+
+#txtGood {
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-27.25%;
+  left:117%;
+  width:30%;
+}
+
+#txtQuality {
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-40%;
+  left:165.5%;
+  width:30%;
+}
+
+#txtBasicPrice{
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-43%;
+  left:67%;
+  width:30%;
+}
+
+#txtGoodPrice{
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-55%;
+  left:118%;
+  width:30%;
+}
+
+#txtQualityPrice{
+  color:white;
+  font-size:28px;
+  position:relative;
+  top:-67%;
+  left:167%;
+  width:30%;
+}
+
+#imgBar {
+  width:200%;
+  height:30%;
+  position:relative;
+  top:-20%;
+  left:53%;
+}
+
+.tool {
+  width:25%;
+}
+
+#btnBar {
+  position:relative;
+  top:-90%;
+  left:44%;
+  width:150%;
+  margin-left:13%;
+}
+
+#qtyBasic {
+  position: relative;
+  top:-65%;
+  left:66%;
+  color:white;
+  font-size:200%;
+  width:30%;
+}
+
+#qtyGood {
+  position:relative;
+  top:-78.5%;
+  left:117%;
+  color:white;
+  font-size:200%;
+  width: 30%;
+}
+
+#qtyQuality {
+  position:relative;
+  top:-92%;
+  left:168%;
+  color:white;
+  font-size:200%;
+  width:30%;
+}
