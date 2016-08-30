@@ -24,24 +24,23 @@ var myObstacles2 = [];
 var myObstacles3 = [];
 var myScore;
 var myHealth ;
-var score=10;
+var score=0;
 var health=100;
 var paused = false;
 
 function startGame() {
-    myBackground = new component(1000, 550, "../assets/space_background.png", 0, 0, "background");
+    myBackground = new component(1260, 600, "../assets/space_background.png", 0, 0, "background");
     myGamePiece = new component(80, 60, "../assets/rocket_sample.png", 10, 100,"image");
-   
     myHealth = new component("30px", "Consolas", "white",15, 30, "text");
-    myScore = new component("30px", "Consolas", "white", 830,30, "text");
+    myScore = new component("30px", "Consolas", "white", 1050,30, "text");
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 1000;
-        this.canvas.height = 550;
+        this.canvas.width = 1260;
+        this.canvas.height = 600;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -153,30 +152,17 @@ function component(width, height, color, x, y, type) {
     }
     
     this.healthIndicator = function(){
-        var alive = true
+        
         if(health<=0){
             health =0;
-            alive = false;
-            if(!alive){
-                
-            
-                ctx.fillText('Game Over',(myGameArea.canvas.width/2)-10,myGameArea.canvas.height/2,300);
-                ctx.fillText('Continue?', myGameArea.canvas.width/2,(myGameArea.canvas.height/2)+30,300);
-                myGameArea.stop();
-                
-                
-            }
-           
+                clearInterval(myGameArea.interval)
+                location.assign("game_over.html");
         }
     }
     
 }
 //game component parameters(end)----------------------------------------------
 
-function retry(){
-        window.location.href = 'gametest.html';
-        
-    }
 
 //update game area function---------------------------------------------------
 function updateGameArea() {
@@ -217,7 +203,9 @@ function updateGameArea() {
     }
     
     myGameArea.clear();
-    myGamePiece.newPos();
+   // myGamePiece.newPos();
+  //  myGamePiece.update();
+   myGamePiece.newPos();
     myGamePiece.update();
     myBackground.speedX = -1;
     
@@ -287,7 +275,6 @@ function updateGameArea() {
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
     if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
     if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
-    if (myGameArea.keys && myGameArea.keys[80]) {location.reload()};
     myGamePiece.newPos();
     myGamePiece.update();
     myGamePiece.wallHit();
@@ -327,7 +314,7 @@ function clearmove() {
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
 </div>-->
-<button onmousedown="retry()" id='result'>RETRY</button>
+
 
 </body>
 </html>

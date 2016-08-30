@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Menu</title>
+  <link rel ="stylesheet" type="text/css" href = "../css/upgradeScreen.css">
+  <script>src="upgradeScreen.js"</script>
+   
+</head>
+  <body>
+    <button id="btnBack" onclick ="window.location.href='../html/menu.html'">Back</button>
+    
+      <h1>Upgrade Shop</h1>
+      
+      
+      <div id="upgradeSelection">
+        <input type="text" name="firstname" value ="Engine" disabled>
+        <input type="text" name="firstname" value ="Wing" disabled>
+        <input type="text" name="firstname" value ="Shield" disabled>
+        <input type="text" name="firstname" value ="Body" disabled>
+        <input type="text" name="firstname" value ="Coin Storage" disabled>
+      </div>
+      
+      <p id ="txtEngPrice">200 Tool</p>
+      <p id ="txtWingPrice">150 Tool</p>
+      <p id ="txtBodyPrice">350 Tool</p>
+      <p id ="txtShieldPrice">750 Tool</p>
+      <p id ="txtStoragePrice">400 Tool</p>
+      
+      <p id = "qtyBasic"></p>
+      <p id = "qtyGood"></p>
+      <p id = "qtyQuality"></p>
+      <p id = "qtyBody"></p>
+      <p id = "qtyStorage"></p>
+  
+      
+      <div id="btnColoumn">
+        <button onclick="btnBasicClicked()" id="btn1">Upgrade</button>
+        
+        <button onclick="btnGoodClicked()">Upgrade</button>
+        
+        <button onclick="btnQualityClicked()">Upgrade</button>
+        
+        <button onclick="btnBodyClicked()">Upgrade</button>
+        
+        <button onclick="btnStorageClicked()">Upgrade</button>
+      </div>
+  <script>
+ var quantity = 0;
+  function btnBasicClicked(){
+    if(quantity < 15){
+    quantity++;
+    document.getElementById('qtyBasic').innerHTML = "Qty: "+quantity+"/15";
+      }
+    }
+    
+  var quantity2 = 0;
+  function btnGoodClicked(){
+    if(quantity2 < 15){
+    quantity2++;
+    document.getElementById('qtyGood').innerHTML = "Qty: "+quantity2+"/15";
+      }
+    }
+    
+  var quantity3 = 0;
+  function btnQualityClicked(){
+    if(quantity3 < 15){
+    quantity3++;
+    document.getElementById('qtyQuality').innerHTML = "Qty: "+quantity3+"/15";
+      }
+    }
+    
+    var quantity4 = 0;
+  function btnBodyClicked(){
+    if(quantity4 < 15){
+    quantity4++;
+    document.getElementById('qtyBody').innerHTML = "Qty: "+quantity4+"/15";
+      }
+    }
+    
+  var quantity5 = 0;
+  function btnStorageClicked(){
+    if(quantity5 < 15){
+    quantity5++;
+    document.getElementById('qtyStorage').innerHTML = "Qty: "+quantity5+"/15";
+      }
+    }
+  
+
+document.getElementById("qtyBasic").innerHTML = "Qty: "+quantity+"/15";
+document.getElementById("qtyGood").innerHTML = "Qty: "+quantity+"/15";
+document.getElementById("qtyQuality").innerHTML = "Qty: "+quantity+"/15";
+document.getElementById("qtyBody").innerHTML = "Qty: "+quantity+"/15";
+document.getElementById("qtyStorage").innerHTML = "Qty: "+quantity+"/15";
+</script>
+  </body>
+</html>
